@@ -1,4 +1,8 @@
 class ReportsController < ApplicationController
+  def index
+
+  end
+  
   def task_completion_report
     @completion_data = Task.group(:status).count
   end

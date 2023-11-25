@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <div class="row">
+    <!-- Task List -->
+    <div class="col">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Task List</h2>
+        <%= link_to "Create Task", new_task_path, class: "btn btn-primary" %>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Assigned To</th>
+            <th scope="col">Status</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Task 1</td>
+            <td>User 1</td>
+            <td>In Progress</td>
+            <td>2023-12-31</td>
+            <td>
+              <button class="btn btn-sm btn-info">Edit</button>
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </td>
+          </tr>
+          <!-- Add more tasks as needed -->
+        </tbody>
+      </table>
+    </div>
+    <!-- Task Form -->
+  </div>
+</div>
