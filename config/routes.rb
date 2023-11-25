@@ -14,4 +14,11 @@ Rails.application.routes.draw do
       get 'team_performance_report'
     end
   end
+
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
+
+  get '/signup', to: 'registrations#new', as: 'signup'
+  post '/signup', to: 'registrations#create'
 end
