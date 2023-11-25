@@ -1,0 +1,12 @@
+<p><strong>Assigned To:</strong> <%= @task.user.name if @task.user %></p>
+<p><strong>Status:</strong> <%= @task.status.humanize %></p>
+<p><strong>Deadline:</strong> <%= @task.deadline.strftime('%Y-%m-%d %H:%M:%S') %></p>
+<% if current_user.admin? %>
+  <%= link_to "Assign Task", assign_task_task_path(@task) %>
+<% end %>
+<% if current_user.admin? || current_user == @task.user %>
+  <%= form_tag(update_status_task_path(@task), method: :patch) do %>
+    <%= select_tag :status, options_for_select(Task.statuses.keys, @task.status), prompt: 'Select status' %>
+    <%= submit_tag 'Update Status' %>
+  <% end %>
+<% end %>

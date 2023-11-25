@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to "Home", "#", class: "nav-link active"%>
+        </li>
+      </ul>
+      <!-- Move login and logout links to the right -->
+      <div class="navbar-nav ms-auto d-none d-lg-block">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Login", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", "#", class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-nav ms-auto d-lg-none">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Login mobile", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", "#", class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
