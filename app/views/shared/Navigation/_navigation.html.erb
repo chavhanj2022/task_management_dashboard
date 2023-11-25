@@ -1,0 +1,24 @@
+<!-- Your main navigation file (e.g., navigation.html.erb) -->
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to "Home", "#", class: "nav-link active" %>
+        </li>
+      </ul>
+      <!-- Render login/logout links for large screens -->
+      <div class="navbar-nav ms-auto d-none d-lg-block">
+        <%= render 'shared/Navigation/login_links' %>
+      </div>
+      <!-- Render login/logout links for small screens -->
+      <div class="navbar-nav ms-auto d-lg-none">
+        <%= render 'shared/Navigation/login_links' %>
+      </div>
+    </div>
+  </div>
+</nav>

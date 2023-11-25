@@ -26,7 +26,7 @@ document.addEventListener("turbolinks:load", function () {
     function test() {
     //  alert('test'); 
     let width = window.innerWidth;
-    console.log(width);
+    // console.log(width);
     }
 
     $(function () {
