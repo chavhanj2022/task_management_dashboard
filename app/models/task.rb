@@ -12,4 +12,8 @@ class Task < ApplicationRecord
 
   STATUS = ["pending", "completed", "in progress"]
 
+  def assign_to_user
+    User.find(assigned_to).name
+  end
+
 end

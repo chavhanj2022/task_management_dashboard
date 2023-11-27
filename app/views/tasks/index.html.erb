@@ -6,6 +6,7 @@
         <h2>Task List</h2>
         <%= link_to "Create Task", new_task_path, class: "btn btn-primary" %>
       </div>
+      <%= paginate @tasks %>
       <table class="table">
         <thead>
           <tr>
@@ -14,21 +15,27 @@
             <th scope="col">Assigned To</th>
             <th scope="col">Status</th>
             <th scope="col">Deadline</th>
-            <th scope="col">Actions</th>
+            <% if current_user.admin?%>
+              <th scope="col">Actions</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Task 1</td>
-            <td>User 1</td>
-            <td>In Progress</td>
-            <td>2023-12-31</td>
-            <td>
-              <button class="btn btn-sm btn-info">Edit</button>
-              <button class="btn btn-sm btn-danger">Delete</button>
-            </td>
-          </tr>
+          <%@tasks.each do |task|%>
+            <tr>
+              <th scope="row">1</th>
+              <td><%= task.title %></td>
+              <td><%= task.assign_to_user%></td>
+              <td><%= task.status%></td>
+              <td><%= task.deadline.strftime("%dd %mm %yy")%></td>
+              <% if current_user.admin?%>
+                <td>
+                  <button class="btn btn-sm btn-info">Edit</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
           <!-- Add more tasks as needed -->
         </tbody>
       </table>

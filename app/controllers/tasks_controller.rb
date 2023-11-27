@@ -2,12 +2,14 @@ class TasksController < ApplicationController
   before_action :authorize_admin, only: [:destroy]
   before_action :set_task, only: %i[show edit update destroy assign_task update_status]
   
+  def index
+    @tasks = Task.page(params[:page]).per(params[:length])
+  end
 
   def create
    
     @task = Task.new(task_params)
     @task.user_id = current_user.id
-    binding.pry
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
